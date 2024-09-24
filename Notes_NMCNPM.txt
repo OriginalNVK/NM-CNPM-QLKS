@@ -1,0 +1,9 @@
+Cố gang giong nhất có thể (UI) nhưng không nhất thiết
+Web hay di động tùy nhóm chọn
+Có 4 báo cáo, lỡ làm báo mà không có project thì vẫn có diem của phần báo cáo
+Kì vọng là chỉ cần chạy trên 1 máy duy nhất
+Cho nhóm sửa bài trên lớp, rồi thầy gop y tren lop de ve dieu chinh
+Cách lay input là do nhóm tự define, rồi có ghi lại trong báo cáo
+Project chỉ cần đủ chức năng, dư là phải hỏi trước
+Cuối cùng trước khi chấm vấn dap có đợt sửa báo cáo -> Nhưng không đc lệch nhiều (scale, functionality... phải "lệch" ít ít thôi)
+Thầy chấm vấn dap
