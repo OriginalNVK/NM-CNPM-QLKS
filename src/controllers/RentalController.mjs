@@ -21,6 +21,7 @@ export const resolveRentalById = (req, res) => {
 }
 
 export const RentalController = {
+    // get all rentals
     get: (req, res) => {
         const { RentalID, RoomID, RentalDate, CheckOutDate, Cost } = req.query;
         let rentals = rentalData;
@@ -60,6 +61,7 @@ export const RentalController = {
         return res.status(200).send(rentals);
     },
 
+    // create a new rental
     post: (req, res) =>{
         const { RoomID, RentalDate, CheckOutDate, Cost } = req.body;
         if (!RoomID || !RentalDate || !CheckOutDate || !Cost) {
@@ -78,9 +80,18 @@ export const RentalController = {
         return res.status(201).send(rentalData);
     },
 
+    // update a rental
     patch: (req, res) => {
         const {body, RentalIndex} = req;
         roomData[RentalIndex] = {...rentalData[RentalIndex], ...body};
         return res.status(200).send(rentalData[RentalIndex]);
+    },
+
+    // get number of customers in a room by rental ID
+    getNumberOfCustomer: (req, res) => {
+        const { id } = req.params;
+        const rentalIndex = resolveRentalById(req, res);
+        const numberOfCustomer = countCustomer(rentalData[rentalIndex].RentalID);
+        return res.status(200).send(numberOfCustomer.toString());
     }
 };
