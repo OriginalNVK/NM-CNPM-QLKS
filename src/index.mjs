@@ -3,7 +3,7 @@ import router from './routes/room.mjs';
 
 const app = express();
 app.use(express.json());
-app.use(router);
+app.use('/room',router);
 
 const PORT = process.env.PORT || 3000;
 

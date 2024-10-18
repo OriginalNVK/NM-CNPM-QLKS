@@ -1,5 +1,5 @@
 import { validationResult, matchedData } from 'express-validator';
-import { Room, MockRoom } from '../utils/constant.mjs';
+import { Room, MockRoom } from '../database/MockData.mjs';
 
 const roomData = MockRoom;
 const roomType = ['A', 'B', 'C'];
@@ -20,7 +20,7 @@ export const resolveRoomById = (req, res, next) => {
 
 export const RoomController = {
     get: (req, res) =>{
-        const { RoomID, RoomType, Price } = req.query;
+        const { RoomID, RoomType, Price, RoomStatus } = req.query;
         let rooms = roomData;
 
         //check valid value
@@ -33,6 +33,9 @@ export const RoomController = {
         if(Price && isNaN(Price)) {
             return res.status(400).send('Invalid Price supplied');
         }
+        if(RoomStatus && !['In Use', 'Empty'].includes(RoomStatus)) {
+            return res.status(400).send('Invalid RoomStatus supplied');
+        }
         
         //filter rooms
         if (RoomID) {
@@ -43,6 +46,9 @@ export const RoomController = {
         }
         if (Price) {
             rooms = rooms.filter((room) => room.Price === parseInt(Price));
+        }
+        if (RoomStatus) {
+            rooms = rooms.filter((room) => room.RoomStatus === RoomStatus);
         }        
 
         //return result
@@ -58,7 +64,7 @@ export const RoomController = {
             return res.status(400).send(errors.array());
         }
         const data = matchedData(req);
-        const newRoom = new Room(data.RoomID, data.RoomType, data.Price, data.Des);
+        const newRoom = new Room(data.RoomID, data.RoomType, data.Price, data.RoomStatus, data.Des);
         roomData.push(newRoom);
         return res.status(201).send(newRoom);    
     },
