@@ -1,11 +1,11 @@
 import express from 'express';
 import RoomRoutes from './routes/room.mjs';
-import RentalRoutes from './routes/rental.mjs';
+import BookingRotes from './routes/booking.mjs';
 
 const app = express();
 app.use(express.json());
 app.use('/room',RoomRoutes);
-app.use('/rental',RentalRoutes);
+app.use('/booking',BookingRotes);
 
 const PORT = process.env.PORT || 3000;
 

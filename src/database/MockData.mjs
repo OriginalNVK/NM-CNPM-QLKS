@@ -27,25 +27,25 @@ class Invoice{
 };
 
 class InvoiceDetails{
-    constructor(InvoiceID, RentalID){
+    constructor(InvoiceID, BookingID){
         this.InvoiceID = InvoiceID;
-        this.RentalID = RentalID;
+        this.BookingID = BookingID;
     }
 };
 
-class Rental{
-    constructor(RentalID, RoomID, RentalDate, CheckOutDate, Cost){
-        this.RentalID = RentalID;
+class Booking{
+    constructor(BookingID, RoomID, BookingDate, CheckOutDate, Cost){
+        this.BookingID = BookingID;
         this.RoomID = RoomID;
-        this.RentalDate = RentalDate;
+        this.BookingDate = BookingDate;
         this.CheckOutDate = CheckOutDate;
         this.Cost = Cost;
     }
 };
 
-class RentalDetails{
-    constructor(RentalID, CustomerID){
-        this.RentalID = RentalID;
+class BookingDetails{
+    constructor(BookingID, CustomerID){
+        this.BookingID = BookingID;
         this.CustomerID = CustomerID;
     }
 };
@@ -163,46 +163,46 @@ const MockInvoice = [
 const MockInvoiceDetails = [
     {
         InvoiceID: 1,
-        RentalID: 1,
+        BookingID: 1,
     },
     {
         InvoiceID: 2,
-        RentalID: 2,
+        BookingID: 2,
     },
 ]
 
-const MockRental = [
+const MockBooking = [
     {
-        RentalID: 1,
+        BookingID: 1,
         RoomID: 101,
-        RentalDate: '2024-10-15',
+        BookingDate: '2024-10-15',
         CheckOutDate: '2024-10-16',
         Cost: 300,
     },
     {
-        RentalID: 2,
+        BookingID: 2,
         RoomID: 102,
-        RentalDate: '2024-10-15',
+        BookingDate: '2024-10-15',
         CheckOutDate: '2024-10-16',
         Cost: 340,
     }
 ];
 
-const MockRentalDetails = [
+const MockBookingDetails = [
     {
-        RentalID: 1,
+        BookingID: 1,
         CustomerID: 1,
     },
     {
-        RentalID: 1,
+        BookingID: 1,
         CustomerID: 3,
     },
     {
-        RentalID: 2,
+        BookingID: 2,
         CustomerID: 2,
     },
     {
-        RentalID: 2,
+        BookingID: 2,
         CustomerID: 4,
     }
 ];
@@ -210,16 +210,16 @@ const MockRentalDetails = [
 const MockData = {
     Room,
     Customer,
+    Booking,
+    BookingDetails,
     Invoice,
     InvoiceDetails,
-    Rental,
-    RentalDetails,
     MockRoom,
     MockCustomer,
     MockInvoice,
     MockInvoiceDetails,
-    MockRental,
-    MockRentalDetails,
+    MockBooking,
+    MockBookingDetails,
 };
 
 export default MockData;
