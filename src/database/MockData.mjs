@@ -1,4 +1,4 @@
-export class Room{
+class Room{
     constructor(_RoomID, _RoomType, _Price, _RoomStatus, _Des){
         this.RoomID = _RoomID;
         this.RoomType = _RoomType;
@@ -8,7 +8,7 @@ export class Room{
     }
 };
 
-export class Customer{
+class Customer{
     constructor(CustomerID, CustomerName, Addess, CitizenCard, Type){
         this.CustomerID = CustomerID;
         this.CustomerName = CustomerName;
@@ -18,7 +18,7 @@ export class Customer{
     }
 };
 
-export class Invoice{
+class Invoice{
     constructor(InvoiceID, TotalCost, Representator){
         this.InvoiceID = InvoiceID;
         this.TotalCost = TotalCost;
@@ -26,25 +26,31 @@ export class Invoice{
     }
 };
 
-export class Rental{
-    constructor(RentalID, RoomID, RentalDate, CheckOutDate, Cost, InvoiceID){
+class InvoiceDetails{
+    constructor(InvoiceID, RentalID){
+        this.InvoiceID = InvoiceID;
+        this.RentalID = RentalID;
+    }
+};
+
+class Rental{
+    constructor(RentalID, RoomID, RentalDate, CheckOutDate, Cost){
         this.RentalID = RentalID;
         this.RoomID = RoomID;
         this.RentalDate = RentalDate;
         this.CheckOutDate = CheckOutDate;
         this.Cost = Cost;
-        this.InvoiceID = InvoiceID;
     }
 };
 
-export class RentalDetails{
+class RentalDetails{
     constructor(RentalID, CustomerID){
         this.RentalID = RentalID;
         this.CustomerID = CustomerID;
     }
 };
 
-export const MockRoom = [
+const MockRoom = [
     {
         RoomID: 101,
         RoomType: 'A',
@@ -110,7 +116,7 @@ export const MockRoom = [
     },
 ];
 
-export const MockCustomer = [
+const MockCustomer = [
     {
         CustomerID: 1,
         CustomerName: 'Huy',
@@ -141,7 +147,7 @@ export const MockCustomer = [
     }
 ];
 
-export const MockInvoice = [
+const MockInvoice = [
     {
         InvoiceID: 1,
         TotalCost: 300,
@@ -154,26 +160,35 @@ export const MockInvoice = [
     },
 ];
 
-export const MockRental = [
+const MockInvoiceDetails = [
+    {
+        InvoiceID: 1,
+        RentalID: 1,
+    },
+    {
+        InvoiceID: 2,
+        RentalID: 2,
+    },
+]
+
+const MockRental = [
     {
         RentalID: 1,
         RoomID: 101,
-        RentalDate: '2021-06-01',
-        CheckOutDate: '2021-06-03',
+        RentalDate: '2024-10-15',
+        CheckOutDate: '2024-10-16',
         Cost: 300,
-        InvoiceID: 1,
     },
     {
         RentalID: 2,
         RoomID: 102,
-        RentalDate: '2021-06-01',
-        CheckOutDate: '2021-06-03',
+        RentalDate: '2024-10-15',
+        CheckOutDate: '2024-10-16',
         Cost: 340,
-        InvoiceID: 2,
     }
 ];
 
-export const MockRentalDetails = [
+const MockRentalDetails = [
     {
         RentalID: 1,
         CustomerID: 1,
@@ -191,3 +206,20 @@ export const MockRentalDetails = [
         CustomerID: 4,
     }
 ];
+
+const MockData = {
+    Room,
+    Customer,
+    Invoice,
+    InvoiceDetails,
+    Rental,
+    RentalDetails,
+    MockRoom,
+    MockCustomer,
+    MockInvoice,
+    MockInvoiceDetails,
+    MockRental,
+    MockRentalDetails,
+};
+
+export default MockData;

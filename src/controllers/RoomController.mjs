@@ -1,7 +1,7 @@
 import { validationResult, matchedData } from 'express-validator';
-import { Room, MockRoom } from '../database/MockData.mjs';
+import MockData from '../database/MockData.mjs';
 
-const roomData = MockRoom;
+const roomData = MockData.MockRoom;
 const roomType = ['A', 'B', 'C'];
 
 export const resolveRoomById = (req, res, next) => {
@@ -64,7 +64,7 @@ export const RoomController = {
             return res.status(400).send(errors.array());
         }
         const data = matchedData(req);
-        const newRoom = new Room(data.RoomID, data.RoomType, data.Price, data.RoomStatus, data.Des);
+        const newRoom = new MockData.Room(data.RoomID, data.RoomType, data.Price, data.RoomStatus, data.Des);
         roomData.push(newRoom);
         return res.status(201).send(newRoom);    
     },
