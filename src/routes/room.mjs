@@ -6,18 +6,18 @@ import { RoomController, resolveRoomById } from '../controllers/RoomController.m
 const router = Router();
 
 // get all rooms
-router.get('/room', RoomController.get);
+router.get('/get', RoomController.get);
 
 // Add a room
-router.post('/room', checkSchema(RoomValidationSchema), RoomController.post);
+router.post('/post', checkSchema(RoomValidationSchema), RoomController.post);
 
 // Edit a room with patch method
-router.patch('/room/:id', resolveRoomById, router.patch);
+router.patch('/patch/:id', resolveRoomById, router.patch);
 
 // Edit a room with put method
-router.put('/room/:id', resolveRoomById, router.put);
+router.put('/put/:id', resolveRoomById, router.put);
 
 // Delete a room
-router.delete('/room/:id', resolveRoomById, router.delete);
+router.delete('/delete/:id', resolveRoomById, router.delete);
 
 export default router;

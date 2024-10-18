@@ -1,1 +1,1 @@
-Su dung MS SQL de lam database cuoi cung, truoc do se su dung mockdata trong constant.mjs
+Su dung MS SQL de lam database cuoi cung, truoc do se su dung mockdata
