@@ -22,7 +22,6 @@ class Invoice{
     constructor(InvoiceID, TotalCost, Representator){
         this.InvoiceID = InvoiceID;
         this.TotalCost = TotalCost;
-        this.Representator = Representator;
     }
 };
 
@@ -34,11 +33,12 @@ class InvoiceDetails{
 };
 
 class Booking{
-    constructor(BookingID, RoomID, BookingDate, CheckOutDate, Cost){
+    constructor(BookingID, RoomID, BookingDate, CheckOutDate, Representator, Cost){
         this.BookingID = BookingID;
         this.RoomID = RoomID;
         this.BookingDate = BookingDate;
         this.CheckOutDate = CheckOutDate;
+        this.Representator = Representator;
         this.Cost = Cost;
     }
 };
@@ -151,12 +151,10 @@ const MockInvoice = [
     {
         InvoiceID: 1,
         TotalCost: 300,
-        Representator: 1,
     },
     {
         InvoiceID: 2,
         TotalCost: 510,
-        Representator: 2,
     },
 ];
 
@@ -177,6 +175,7 @@ const MockBooking = [
         RoomID: 101,
         BookingDate: '2024-10-15',
         CheckOutDate: '2024-10-16',
+        Representator: 1,
         Cost: 300,
     },
     {
@@ -184,6 +183,7 @@ const MockBooking = [
         RoomID: 102,
         BookingDate: '2024-10-15',
         CheckOutDate: '2024-10-16',
+        Representator: 2,
         Cost: 340,
     }
 ];
