@@ -1,11 +1,13 @@
 import express from 'express';
 import RoomRoutes from './routes/room.mjs';
 import BookingRotes from './routes/booking.mjs';
+import InvoiceRoutes from './routes/invoice.mjs';
 
 const app = express();
 app.use(express.json());
 app.use('/room',RoomRoutes);
 app.use('/booking',BookingRotes);
+app.use('/invoice',InvoiceRoutes);
 
 const PORT = process.env.PORT || 3000;
 

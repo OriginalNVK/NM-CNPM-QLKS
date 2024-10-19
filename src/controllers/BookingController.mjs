@@ -90,8 +90,11 @@ export const BookingController = {
     // get number of customers in a room by booking ID
     getNumberOfCustomer: (req, res) => {
         const { id } = req.params;
-        const bookingIndex = resolvebookingById(req, res);
-        const numberOfCustomer = countCustomer(bookingData[bookingIndex].BookingID);
-        return res.status(200).send(numberOfCustomer.toString());
+        const booking = bookingData.find((booking) => booking.BookingID === parseInt(id));
+        if (!booking) {
+            return res.status(404).send('booking not found');
+        }
+        const numberOfCustomer = countCustomer(parseInt(id));
+        return res.status(200).send({numberOfCustomer});
     }
 };

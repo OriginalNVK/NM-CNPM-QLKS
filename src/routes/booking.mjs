@@ -5,7 +5,7 @@ const router = Router();
 
 router.get('/get', BookingController.get);
 
-router.get('/getNumberOfCustomer/:id', resolveBookingById, BookingController.getNumberOfCustomer);
+router.get('/get/:id/numberOfCustomer', BookingController.getNumberOfCustomer);
 
 router.post('/post', BookingController.post);
 
